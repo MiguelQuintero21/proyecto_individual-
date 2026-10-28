@@ -1,0 +1,30 @@
+body {
+    background-color: #121214;
+    color: #f1f1f1;
+    font-family: monospace, sans-serif;
+}
+
+header h1 {
+    color: #b19cd9;
+    font-weight: bold;
+    text-shadow: 2px 2px #000;
+}
+
+.card {
+    background-color: #1e1e24;
+    border: 2px dashed #b19cd9;
+    color: #f1f1f1;
+}
+
+.form-control {
+    background-color: #2b2b36;
+    border: 1px solid #b19cd9;
+    color: #fff;
+}
+
+.form-control:focus {
+    background-color: #2b2b36;
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 5px #b19cd9;
+}
