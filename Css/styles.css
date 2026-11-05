@@ -1,49 +1,82 @@
 
 
-
 body {
-    background-color: #121214;
-    color: #f1f1f1;
-    font-family: monospace, sans-serif;
+    background-color: #0d0d11 !important;
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.02),
+        rgba(255, 255, 255, 0.02) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    color: #e2e2e9 !important;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 header h1 {
-    color: #b19cd9;
-    font-weight: bold;
-    text-shadow: 2px 2px #000;
+    color: #c4b5fd !important;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+}
+
+header p, .text-muted {
+    color: #9ca3af !important;
 }
 
 .card {
-    background-color: #1e1e24;
-    color: #f1f1f1;
-}
-
-.custom-dashed-box {
-    border: 1px dashed rgba(177, 156, 217, 0.5) !important;
+    background-color: #16161d !important;
+    color: #f3f4f6 !important;
+    border: 1px dashed rgba(196, 181, 253, 0.4) !important;
     border-radius: 12px;
 }
 
+.custom-dashed-box {
+    border: 1px dashed rgba(196, 181, 253, 0.4) !important;
+    border-radius: 12px;
+}
+
+form label, .form-label {
+    color: #f3f4f6 !important;
+    font-weight: 500;
+}
+
 .form-control, .form-select {
-    background-color: #2b2b36;
-    border: 1px solid #b19cd9;
-    color: #fff;
+    background-color: #202028 !important;
+    border: 1px solid #4b5563 !important;
+    color: #ffffff !important;
+}
+
+.form-control::placeholder {
+    color: #9ca3af !important;
+    opacity: 1;
 }
 
 .form-control:focus, .form-select:focus {
-    background-color: #2b2b36;
-    color: #fff;
-    border-color: #fff;
-    box-shadow: 0 0 5px #b19cd9;
+    background-color: #202028 !important;
+    color: #ffffff !important;
+    border-color: #c4b5fd !important;
+    box-shadow: 0 0 0 0.25rem rgba(196, 181, 253, 0.25) !important;
 }
 
 .table-dark {
-    --bs-table-bg: #1e1e24;
-    --bs-table-striped-bg: #2b2b36;
-    --bs-table-hover-bg: #32323f;
-    color: #f1f1f1;
+    --bs-table-bg: #16161d !important;
+    --bs-table-striped-bg: #1f1f28 !important;
+    --bs-table-hover-bg: #2a2a36 !important;
+    color: #f3f4f6 !important;
+}
+
+.table-dark th, .table-dark td {
+    color: #f3f4f6 !important;
+    border-color: #2d2d3d !important;
 }
 
 .btn-outline-danger {
-    border-color: #dc3545;
-    padding: 2px 8px;
+    color: #f87171;
+    border-color: #f87171;
+}
+
+.btn-outline-danger:hover {
+    background-color: #f87171;
+    color: #fff;
 }

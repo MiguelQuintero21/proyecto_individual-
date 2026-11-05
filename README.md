@@ -11,6 +11,7 @@ https://www.figma.com/design/0YqyQNNmNgAYvTEmxApCXO/Proyecto-Individual?node-id=
 
 
 Link despliegue proyecto:
+https://miguelquintero21.github.io/proyecto_individual-/
 
 
 
