@@ -1,3 +1,6 @@
+
+
+
 body {
     background-color: #121214;
     color: #f1f1f1;
@@ -12,26 +15,32 @@ header h1 {
 
 .card {
     background-color: #1e1e24;
-    border: 2px dashed #b19cd9;
     color: #f1f1f1;
 }
 
-.form-control {
+.custom-dashed-box {
+    border: 1px dashed rgba(177, 156, 217, 0.5) !important;
+    border-radius: 12px;
+}
+
+.form-control, .form-select {
     background-color: #2b2b36;
     border: 1px solid #b19cd9;
     color: #fff;
 }
 
-.form-control:focus {
+.form-control:focus, .form-select:focus {
     background-color: #2b2b36;
     color: #fff;
     border-color: #fff;
     box-shadow: 0 0 5px #b19cd9;
 }
 
-.custom-dashed-box {
-    border: 1px dashed rgba(255, 255, 255, 0.4) !important;
-    border-radius: 12px;
+.table-dark {
+    --bs-table-bg: #1e1e24;
+    --bs-table-striped-bg: #2b2b36;
+    --bs-table-hover-bg: #32323f;
+    color: #f1f1f1;
 }
 
 .btn-outline-danger {
