@@ -1,6 +1,6 @@
 # Planificador de Tareas Web
 
-* **Aplicación web desarrollada como proyecto individual para el bootcamp Full Stack Java de Generation Colombia. Permite gestionar y organizar tareas diarias de forma interactiva con una temática visual inusual y distinta**
+* **Aplicación web desarrollada como proyecto individual para el bootcamp Full Stack Java de Generation Colombia. Permite gestionar y organizar tareas diarias de forma interactiva con una temática visual personalizada a mi estilo**
 
 Link Trello:
 https://trello.com/invite/b/6ae25af3105406f0e5c0da88/ATTI365d3aa0f735dcbae8e89305cbd4401fA22BEE7D/✅-proyecto-individual

@@ -1,4 +1,5 @@
-/* css/styles.css - Estilo Gótico Tim Burton (Morado Neón Alta Visibilidad) */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap');
 
 body {
@@ -15,7 +16,6 @@ body {
   min-height: 100vh;
 }
 
-/* Títulos con tipografía Tim Burton */
 h1, .gothic-title {
   font-family: 'Creepster', cursive;
   color: #c084fc !important;
@@ -31,7 +31,6 @@ h1, .gothic-title {
   text-shadow: 0 0 8px rgba(233, 213, 255, 0.4);
 }
 
-/* Tarjetas y Contenedores */
 .card {
   background-color: #140d21 !important;
   border: 1px solid #581c87 !important;
@@ -39,13 +38,11 @@ h1, .gothic-title {
   border-radius: 8px;
 }
 
-/* Corrección definitiva para que las descripciones y subtítulos se vean brillantes */
 .text-muted, small {
   color: #d8b4fe !important;
   opacity: 0.95;
 }
 
-/* Campos del Formulario (Textos 100% Legibles) */
 .form-label {
   color: #e9d5ff !important;
   font-weight: bold;
@@ -71,7 +68,6 @@ h1, .gothic-title {
   box-shadow: 0 0 12px rgba(192, 132, 252, 0.5);
 }
 
-/* Botón Morado de Guardar Tarea */
 .btn-gothic-purple {
   background-color: #7e22ce !important;
   border: 1px solid #c084fc !important;
