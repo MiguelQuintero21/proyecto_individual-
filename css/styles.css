@@ -1,82 +1,89 @@
-
+/* css/styles.css - Estilo Gótico Tim Burton (Morado Neón Alta Visibilidad) */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap');
 
 body {
-    background-color: #0d0d11 !important;
-    background-image: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.02),
-        rgba(255, 255, 255, 0.02) 10px,
-        transparent 10px,
-        transparent 20px
-    );
-    color: #e2e2e9 !important;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background-color: #0d0914 !important;
+  color: #f3e8ff !important;
+  font-family: 'Special Elite', monospace, sans-serif;
+  background-image: repeating-linear-gradient(
+    135deg,
+    #0d0914,
+    #0d0914 15px,
+    #150e21 15px,
+    #150e21 30px
+  );
+  min-height: 100vh;
 }
 
-header h1 {
-    color: #c4b5fd !important;
-    font-weight: 800;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    letter-spacing: 1px;
+/* Títulos con tipografía Tim Burton */
+h1, .gothic-title {
+  font-family: 'Creepster', cursive;
+  color: #c084fc !important;
+  text-shadow: 0 0 12px rgba(192, 132, 252, 0.7), 2px 2px 0px #000;
+  letter-spacing: 2px;
 }
 
-header p, .text-muted {
-    color: #9ca3af !important;
+.title-gothic {
+  font-family: 'Creepster', cursive;
+  color: #e9d5ff !important;
+  letter-spacing: 1.5px;
+  font-size: 1.8rem;
+  text-shadow: 0 0 8px rgba(233, 213, 255, 0.4);
 }
 
+/* Tarjetas y Contenedores */
 .card {
-    background-color: #16161d !important;
-    color: #f3f4f6 !important;
-    border: 1px dashed rgba(196, 181, 253, 0.4) !important;
-    border-radius: 12px;
+  background-color: #140d21 !important;
+  border: 1px solid #581c87 !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8), 0 0 12px rgba(168, 85, 247, 0.2);
+  border-radius: 8px;
 }
 
-.custom-dashed-box {
-    border: 1px dashed rgba(196, 181, 253, 0.4) !important;
-    border-radius: 12px;
+/* Corrección definitiva para que las descripciones y subtítulos se vean brillantes */
+.text-muted, small {
+  color: #d8b4fe !important;
+  opacity: 0.95;
 }
 
-form label, .form-label {
-    color: #f3f4f6 !important;
-    font-weight: 500;
+/* Campos del Formulario (Textos 100% Legibles) */
+.form-label {
+  color: #e9d5ff !important;
+  font-weight: bold;
+  font-size: 0.95rem;
 }
 
 .form-control, .form-select {
-    background-color: #202028 !important;
-    border: 1px solid #4b5563 !important;
-    color: #ffffff !important;
+  background-color: #1a102b !important;
+  color: #ffffff !important;
+  border: 1px solid #7c3aed !important;
+  border-radius: 6px;
 }
 
 .form-control::placeholder {
-    color: #9ca3af !important;
-    opacity: 1;
+  color: #c4b5fd !important;
+  opacity: 0.8;
 }
 
 .form-control:focus, .form-select:focus {
-    background-color: #202028 !important;
-    color: #ffffff !important;
-    border-color: #c4b5fd !important;
-    box-shadow: 0 0 0 0.25rem rgba(196, 181, 253, 0.25) !important;
+  background-color: #23153b !important;
+  color: #ffffff !important;
+  border-color: #c084fc !important;
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.5);
 }
 
-.table-dark {
-    --bs-table-bg: #16161d !important;
-    --bs-table-striped-bg: #1f1f28 !important;
-    --bs-table-hover-bg: #2a2a36 !important;
-    color: #f3f4f6 !important;
+/* Botón Morado de Guardar Tarea */
+.btn-gothic-purple {
+  background-color: #7e22ce !important;
+  border: 1px solid #c084fc !important;
+  color: #ffffff !important;
+  font-family: 'Creepster', cursive;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  box-shadow: 0 0 12px rgba(126, 34, 206, 0.7);
+  transition: all 0.2s ease-in-out;
 }
 
-.table-dark th, .table-dark td {
-    color: #f3f4f6 !important;
-    border-color: #2d2d3d !important;
-}
-
-.btn-outline-danger {
-    color: #f87171;
-    border-color: #f87171;
-}
-
-.btn-outline-danger:hover {
-    background-color: #f87171;
-    color: #fff;
+.btn-gothic-purple:hover {
+  background-color: #9333ea !important;
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.9);
 }
