@@ -2,97 +2,211 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Planificador de Tareas Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planificador de Tareas</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <div class="container py-4">
-
-    <header class="text-center mb-4">
-      <h1 class="display-3">PLANIFICADOR DE TAREAS</h1>
-      <p class="text-muted small">Organiza tus pesadillas y actividades diarias 🕷️ 🦇</p>
-    </header>
-
-    <div class="row g-4">
-
-      <div class="col-lg-4">
-        <div class="card p-3">
-          <h4 class="title-gothic mb-3">Nueva Tarea</h4>
-          <form id="task-form">
-            <div class="mb-3">
-              <label for="task-name" class="form-label">Título de la tarea</label>
-              <input type="text" class="form-control" id="task-name" placeholder="Ej: Wireframe Figma">
-            </div>
-            <div class="mb-3">
-              <label for="task-desc" class="form-label">Descripción</label>
-              <textarea class="form-control" id="task-desc" rows="3" placeholder="Descripción de la tarea..."></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="task-date" class="form-label">Fecha de entrega</label>
-              <input type="date" class="form-control" id="task-date">
-            </div>
-            <div class="mb-3">
-              <label for="task-status" class="form-label">Estado</label>
-              <select class="form-select" id="task-status">
-                <option value="">Selecciona un estado</option>
-                <option value="PENDIENTE">PENDIENTE</option>
-                <option value="EN PROCESO">EN PROCESO</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-gothic-purple w-100 py-2">GUARDAR TAREA 👻</button>
-          </form>
-        </div>
-      </div>
-
-      <div class="col-lg-8">
-        <div class="card p-3 mb-4">
-          <h4 class="title-gothic mb-3">Tareas Pendientes</h4>
-          
-          <div class="card p-3 mb-2" style="background-color: #1a102b !important; border-color: #3b1d6e !important;">
-            <div class="d-flex justify-content-between align-items-center">
-              <div>
-                <h5 class="m-0 fw-bold text-light">Wireframe Figma</h5>
-                <small class="text-muted">Crear el diseño de baja fidelidad en Figma.</small>
-                <div class="mt-1">
-                  <span class="badge" style="background-color: #4c2882; color: #d8b4fe;">2026-11-05</span>
-                </div>
-              </div>
-              <div>
-                <input type="checkbox" class="form-check-input me-2" style="background-color: #140d21; border-color: #a855f7;">
-                <button class="btn btn-outline-danger btn-sm">✕</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="card p-3 mb-2" style="background-color: #1a102b !important; border-color: #3b1d6e !important;">
-            <div class="d-flex justify-content-between align-items-center">
-              <div>
-                <h5 class="m-0 fw-bold text-light">Estructura HTML</h5>
-                <small class="text-muted">Crear las secciones principales</small>
-                <div class="mt-1">
-                  <span class="badge" style="background-color: #4c2882; color: #d8b4fe;">2026-11-04</span>
-                </div>
-              </div>
-              <div>
-                <input type="checkbox" class="form-check-input me-2" checked style="background-color: #140d21; border-color: #a855f7;">
-                <button class="btn btn-outline-danger btn-sm">✕</button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
+  <div class="bats" aria-hidden="true">
+    <i class="bi bi-moon-stars-fill moon"></i>
+    <span class="bat b1">🦇</span>
+    <span class="bat b2">🦇</span>
+    <span class="bat b3">🦇</span>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <header class="container py-4 text-center">
+    <h2 class="title-burton">Planificador de Tareas</h2>
+    <h2 class="subtitle-burton">Si lo crees te es posible...</h2>
+  </header>
 
-  <script src="js/taskManager.js"></script>
-  <script src="js/index.js"></script>
+  <main class="container pb-5">
+    <div class="row g-4">
+
+      <section class="col-lg-7">
+
+        <div class="panel mb-4">
+          <h2 class="panel-title" id="formTitle"><i class="bi bi-feather"></i> Nueva tarea</h2>
+
+          <div id="formAlert" class="alert alert-danger d-none" role="alert">
+            <strong>error y no de los buenos</strong>
+            <ul id="formAlertList" class="mb-0 mt-1"></ul>
+          </div>
+          <div id="formSuccess" class="alert alert-success d-none" role="status">
+            Tarea registrada!! Que la productividad te acompañe.
+          </div>
+
+          <form id="taskForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="newTaskNameInput" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="newTaskNameInput" placeholder="Ej: Estudiar JavaScript">
+              </div>
+              <div class="col-md-3">
+                <label for="newTaskDateInput" class="form-label">Fecha de entrega</label>
+                <input type="date" class="form-control" id="newTaskDateInput">
+              </div>
+              <div class="col-md-3">
+                <label for="newTaskStatusSelect" class="form-label">Estado</label>
+                <select class="form-select" id="newTaskStatusSelect">
+                  <option value="" selected>Selecciona…</option>
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="En proceso">En proceso</option>
+                  <option value="Completada">Completada</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="newTaskDescriptionInput" class="form-label">Descripción</label>
+                <textarea class="form-control" id="newTaskDescriptionInput" rows="2" placeholder="¿Qué debes hacer exactamente?"></textarea>
+              </div>
+              <div class="col-12 text-end d-flex justify-content-end gap-2">
+                <button type="button" class="btn btn-outline-burton d-none" id="cancelEditBtn">Cancelar</button>
+                <button type="submit" class="btn btn-burton" id="addTaskBtn">
+                  <i class="bi bi-plus-lg"></i> Agregar tarea
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="panel">
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+            <h2 class="panel-title"><i class="bi bi-journal-bookmark-fill"></i> Lista de tareas</h2>
+            <button type="button" class="btn btn-sm btn-outline-burton" id="clearDoneBtn">
+              <i class="bi bi-trash3-fill"></i> Eliminar tareas hechas
+            </button>
+          </div>
+
+          <div id="taskList" class="row g-3">
+
+            <div class="col-md-6">
+              <article class="card task-card">
+                <div class="card-body">
+                  <h3 class="card-title">Estudiar Bootstrap</h3>
+                  <p class="card-text">Repasar el sistema de rejilla, cards y componentes de formularios.</p>
+                  <span class="badge badge-pendiente">Pendiente</span>
+                </div>
+                <div class="card-footer"><i class="bi bi-calendar-event"></i> Entrega: 2026-11-06</div>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="card task-card">
+                <div class="card-body">
+                  <h3 class="card-title">Wireframe en Figma</h3>
+                  <p class="card-text">Terminar el wireframe de baja fidelidad del planificador.</p>
+                  <span class="badge badge-completada">Completada</span>
+                </div>
+                <div class="card-footer"><i class="bi bi-calendar-event"></i> Entrega: 2026-11-02</div>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="card task-card">
+                <div class="card-body">
+                  <h3 class="card-title">Validar formulario</h3>
+                  <p class="card-text">Implementar validFormFieldInput(data) y la alerta de errores.</p>
+                  <span class="badge badge-proceso">En proceso</span>
+                </div>
+                <div class="card-footer"><i class="bi bi-calendar-event"></i> Entrega: 2026-11-05</div>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="card task-card">
+                <div class="card-body">
+                  <h3 class="card-title">Publicar en GitHub Pages</h3>
+                  <p class="card-text">Activar Pages en la rama main y copiar el enlace al README.</p>
+                  <span class="badge badge-pendiente">Pendiente</span>
+                </div>
+                <div class="card-footer"><i class="bi bi-calendar-event"></i> Entrega: 2026-11-07</div>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="card task-card">
+                <div class="card-body">
+                  <h3 class="card-title">Tablero de Trello</h3>
+                  <p class="card-text">Mover las tarjetas del Sprint 1 a la columna Finalizado.</p>
+                  <span class="badge badge-proceso">En proceso</span>
+                </div>
+                <div class="card-footer"><i class="bi bi-calendar-event"></i> Entrega: 2026-11-08</div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-lg-5">
+
+        <div class="panel mb-4 text-center">
+          <h2 class="panel-title justify-content-center"><i class="bi bi-hourglass-split"></i> Pomodoro</h2>
+
+          <div class="btn-group btn-group-sm mb-3" role="group" aria-label="Modo">
+            <button type="button" class="btn btn-mode active" data-minutes="25" data-label="Enfoque">Enfoque 25</button>
+            <button type="button" class="btn btn-mode" data-minutes="5" data-label="Descanso corto">Corto 5</button>
+            <button type="button" class="btn btn-mode" data-minutes="15" data-label="Descanso largo">Largo 15</button>
+          </div>
+
+          <div id="pomodoroTime" class="pomodoro-time">25:00</div>
+          <div id="pomodoroLabel" class="pomodoro-label">Tiempo de enfoque</div>
+          <div class="progress pomodoro-bar my-3" role="progressbar" aria-label="Progreso del pomodoro">
+            <div id="pomodoroBar" class="progress-bar" style="width: 0%"></div>
+          </div>
+
+          <div class="d-flex justify-content-center gap-2">
+            <button id="pomodoroStart" class="btn btn-burton" type="button"><i class="bi bi-play-fill"></i> Iniciar</button>
+            <button id="pomodoroReset" class="btn btn-outline-burton" type="button"><i class="bi bi-arrow-counterclockwise"></i></button>
+          </div>
+          <p class="small mt-3 mb-0">Pomodoros completados hoy: <strong id="pomodoroCount">0</strong></p>
+        </div>
+
+        <!-- TAREAS HECHAS -->
+        <div class="panel mb-4">
+          <h2 class="panel-title"><i class="bi bi-check2-circle"></i> Tareas hechas</h2>
+          <div class="d-flex justify-content-between small">
+            <span>Cumplimiento de tareas</span>
+            <span id="doneText">0%</span>
+          </div>
+          <div class="progress my-2" role="progressbar" aria-label="Cumplimiento">
+            <div id="doneBar" class="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- MÚSICA -->
+        <div class="panel">
+          <h2 class="panel-title"><i class="bi bi-headphones"></i> Música &amp; enfoque</h2>
+          <p class="small">Elige un ambiente sonoro para concentrarte.</p>
+
+          <div class="d-grid gap-2 mb-3">
+            <button type="button" class="btn btn-track" data-track="musicbox"><i class="bi bi-music-note-beamed"></i> Caja de música</button>
+            <button type="button" class="btn btn-track" data-track="organ"><i class="bi bi-moon"></i> Órgano del cementerio</button>
+            <button type="button" class="btn btn-track" data-track="hometown"><i class="bi bi-vinyl-fill"></i> Hometown · twenty one pilots</button>
+          </div>
+
+          <div class="player d-flex align-items-center gap-3">
+            <button id="playBtn" class="btn btn-burton rounded-circle" type="button" aria-label="Reproducir / pausar">
+              <i class="bi bi-play-fill"></i>
+            </button>
+            <div class="flex-grow-1">
+              <div id="trackName" class="track-name">Nada sonando…</div>
+              <input id="volume" type="range" class="form-range" min="0" max="1" step="0.05" value="0.5" aria-label="Volumen">
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <footer class="text-center small pb-4">Proyecto individual · Miguel Quintero · Generation Colombia </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
